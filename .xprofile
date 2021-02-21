@@ -1,0 +1,17 @@
+# start dlna server
+/usr/bin/minidlnad -R -f ~/.config/minidlna/minidlna.conf -P ~/.config/minidlna/minidlna.pid &
+
+# start tmux in detached session
+/usr/bin/tmux new-session -s server -d &
+
+# locking paste with middle click
+/usr/bin/xmousepasteblock &
+
+# xscreensaver service
+/usr/bin/xscreensaver -no-splash &
+
+# ssh-agent
+eval "$(ssh-agent -s)" &
+
+# Nvidia PowerMizer
+nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=1" &
