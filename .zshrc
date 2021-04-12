@@ -105,6 +105,8 @@ alias edit="$EDITOR"
 alias zsrc="source ~/.zshrc"
 alias start="nohup nautilus . > /dev/null 2>&1"
 alias lazy="lazydocker"
+alias venv="source .venv/bin/activate"
+alias m2c='while true;do mon2cam -m 0 -r 1280:720 -d 10; done'
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
