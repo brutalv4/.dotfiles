@@ -84,7 +84,7 @@ plugins=(zsh_reload aws git npm nvm tmux pip)
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -103,7 +103,7 @@ alias peffects='while true; do pulseeffects; sleep 2; done'
 alias vi="vim"
 alias edit="$EDITOR"
 alias zsrc="source ~/.zshrc"
-alias start="nohup nautilus . > /dev/null 2>&1"
+alias gui="xdg-open ."
 alias lazy="lazydocker"
 alias venv="source .venv/bin/activate"
 alias m2c='while true;do mon2cam -m 0 -r 1280:720 -d 10; done'
