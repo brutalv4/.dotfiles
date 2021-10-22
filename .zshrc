@@ -68,7 +68,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh_reload aws git npm nvm tmux pip)
+plugins=(aws git npm nvm tmux pip zsh-autocomplete)
 
 
 # User configuration
@@ -96,7 +96,6 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias peerflix='peerflix --path /home/ricky/Downloads'
 alias wprefixpwd='export WINEPREFIX=$(pwd)'
 alias wdebug='export WINEDEBUG="+timestamp,+pid,+tid,+seh,+debugstr,+loaddll,+mscoree"'
 alias peffects='while true; do pulseeffects; sleep 2; done'
@@ -107,6 +106,8 @@ alias gui="xdg-open ."
 alias lazy="lazydocker"
 alias venv="source .venv/bin/activate"
 alias m2c='while true;do mon2cam -m 0 -r 1280:720 -d 10; done'
+alias serve='serve -l 5500'
+alias src='omz reload'
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -123,3 +124,6 @@ export PATH=$PATH:$DENO_INSTALL/bin
 
 #export ANDROID_HOME=$HOME/Android/Sdk
 #export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/emulator:$PATH
+
+[ -e "node_modules" ] && npmE
+[ -e ".nvmrc" ] && nvm use
