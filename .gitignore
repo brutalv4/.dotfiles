@@ -1,3 +1,25 @@
-node_modules
-.venv
-venv
+# IDE's
+**/.vscode
+**/.idea
+
+# js
+**/node_modules
+**/dist
+
+# python
+**/venv
+**/.venv
+**/__pycache__
+**/.python-version
+
+# firebase
+**/.firebase
+
+# temp directories
+**/tmp
+**/temp
+
+# logs
+**/*log
+**/log
+**/logs
