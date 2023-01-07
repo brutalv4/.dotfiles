@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh/
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(aws git npm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk)
-plugins=(aws git npm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk)
+plugins=(aws git npm pnpm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk)
 
 # User configuration
 
@@ -100,13 +100,14 @@ plugins=(aws git npm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias peffects='while true; do pulseeffects; sleep 2; done'
 alias vi="vim"
+export EDITOR='vim'
 alias edit="$EDITOR"
 alias open="xdg-open"
 alias lzd="lazydocker"
 alias venv="source .venv/bin/activate"
 alias m2c='while true;do mon2cam -m 0 -r 1280:720 -d 10; done'
 alias src='omz reload'
-alias code='EDITOR=code-insiders code-insiders'
+# alias code='EDITOR=code-insiders code-insiders'
 alias mpv='schedtool -n -10 -e mpv'
 alias ts-pwd='ts $(basename $PWD)'
 alias tad-pwd='tad $(basename $PWD)'
@@ -123,6 +124,8 @@ source $ZSH/oh-my-zsh.sh
 export DENO_INSTALL=$HOME/.deno
 export PATH=$PATH:$DENO_INSTALL/bin
 
+[ -e ".env" ] && source .env
+
 source /usr/share/nvm/init-nvm.sh
 [ -e "node_modules" ] && npmE
 [ -e ".nvmrc" ] && nvm use
@@ -131,6 +134,7 @@ source /usr/share/nvm/init-nvm.sh
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[ -e ".sdkmanrc" ] && sdk env
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

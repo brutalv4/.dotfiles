@@ -2,6 +2,7 @@
 	defaultBranch = main
 [core]
 	excludesfile = ~/.gitignore
+	editor = code --wait
 [pull]
 	rebase = true
 [rebase]
