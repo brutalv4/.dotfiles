@@ -70,7 +70,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(aws git npm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk)
-plugins=(aws git npm pnpm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk)
+plugins=(aws git npm pnpm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk mvn)
 
 # User configuration
 
@@ -113,6 +113,7 @@ alias ts-pwd='ts $(basename $PWD)'
 alias tad-pwd='tad $(basename $PWD)'
 alias ctrl='tad ctrl'
 alias nvmrc='node -v > .nvmrc'
+alias npkill='npx npkill'
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
