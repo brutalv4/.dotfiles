@@ -98,7 +98,7 @@ plugins=(aws git npm pnpm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlig
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias peffects='while true; do pulseeffects; sleep 2; done'
+alias peffects='while true; do easyeffects; sleep 2; done'
 alias vi="vim"
 export EDITOR='vim'
 alias edit="$EDITOR"
