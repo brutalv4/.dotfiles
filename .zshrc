@@ -69,8 +69,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(aws git npm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk)
-plugins=(aws git npm pnpm nvm tmux pyenv pip zsh-autocomplete zsh-syntax-highlighting sdk mvn)
+plugins=(asdf aws git npm pnpm tmux pip zsh-autocomplete zsh-syntax-highlighting mvn)
 
 # User configuration
 
@@ -114,6 +113,7 @@ alias tad-pwd='tad $(basename $PWD)'
 alias ctrl='tad ctrl'
 alias nvmrc='node -v > .nvmrc'
 alias npkill='npx npkill'
+# alias yay='yay -Syu --devel'
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -126,39 +126,9 @@ export DENO_INSTALL=$HOME/.deno
 export PATH=$PATH:$DENO_INSTALL/bin
 
 [ -e ".env" ] && source .env
+[ -e ".env.local" ] && source .env.local
 
-source /usr/share/nvm/init-nvm.sh
 [ -e "node_modules" ] && npmE
-[ -e ".nvmrc" ] && nvm use
-
-# SDKMan
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-[ -e ".sdkmanrc" ] && sdk env
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-source /usr/share/zsh/site-functions/_pyenv
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PIPX_DEFAULT_PYTHON="$HOME/.pyenv/versions/3.10.4/bin/python"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ricky/.pyenv/versions/anaconda3-2021.11/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ricky/.pyenv/versions/anaconda3-2021.11/etc/profile.d/conda.sh" ]; then
-        . "/home/ricky/.pyenv/versions/anaconda3-2021.11/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ricky/.pyenv/versions/anaconda3-2021.11/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # CUDA
 export CUDA_PATH=/opt/cuda
@@ -167,3 +137,10 @@ export CPATH=$CUDA_PATH/include:$CPATH
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 export TF_GPU_ALLOCATOR=cuda_malloc_async
 export TF_FORCE_GPU_ALLOW_GROWTH=true
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+# loading asdf
+. /opt/asdf-vm/asdf.sh
